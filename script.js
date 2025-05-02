@@ -45,6 +45,20 @@ let clearForNextOperation = false
 
 
 // Event Listeners
+onkeydown = (e) => {
+    const numbers = "0123456789"
+    if(numbers.split("").includes(e.key)){
+        if(clearForNextOperation){
+            displayEl.textContent = e.key
+            clearForNextOperation = false
+        }else{
+            displayEl.textContent += e.key
+        }
+
+    }
+}
+displayEl.addEventListener("keydown", onkeydown)
+
 btnElements.addEventListener("click", (e)=> {
 
     if(e.target.classList.contains("operator")){
